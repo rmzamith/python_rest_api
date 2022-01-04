@@ -25,13 +25,13 @@ endif
 .PHONY: up
 up: build
 	# Spining up application...
-	@docker run --rm -d -p 8002:8002 $(DOCKER_IMAGE_TAG)
+	@docker run --rm -d --name hello_world_api -p 8002:8002 $(DOCKER_IMAGE_TAG)
 	# Done!
 
 .PHONY: down
 down:
 	# Spining down application...
-	@docker stop  $$(docker ps | grep hello_world | awk '{print $$1}') -f
+	@docker stop  $$(docker ps | grep hello_world_api | awk '{print $$1}')
 	# Done!
 
 .PHONY: clean
