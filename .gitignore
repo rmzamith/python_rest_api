@@ -1,0 +1,25 @@
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak
+venv.bakvirtualenv
+
+#Python and Flask
+.DS_Store
+.flaskenv
+*.pyc
+*.pyo
+dist/
+build/
+*.egg
+*.egg-info
+_mailinglist
+.tox/
+.cache/
+.pytest_cache
+docs/_build/
+
+.vscode/
+.idea/

@@ -1,0 +1,46 @@
+openapi: 3.0.1
+info:
+  description: This is the specification for My App REST API
+  version: 1.0.0
+  title: My App (Hello World)
+
+servers:
+  - url: http://localhost:8002/api/v1
+  - url: /app/v1
+
+paths:
+  /hello_world:
+    get:
+      operationId: controllers.v1.hello_world.static_message
+      summary: Prints statc "Hello World!" message
+      description: A simple demonstration of an HTTP GET method
+      responses:
+        200:
+          description: Hello World message response
+    post:
+      operationId: controllers.v1.hello_world.responsive_message
+      tags:
+        - InputMessage
+      summary: Prints "Hello World!" + message on request body
+      description: A simple demonstration of an HTTP POST method
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InputMessage"
+      responses:
+        200:
+          description: Hello World plus request message response
+
+components:
+  schemas:
+    InputMessage:
+      type: object
+      properties:
+        input_message:
+          type: string
+          description: The message you want to print along with "Hello World!"
+      required:
+        ["input_message",]
+
